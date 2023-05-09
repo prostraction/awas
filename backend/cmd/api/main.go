@@ -1,6 +1,7 @@
 package main
 
 import (
+	"backend/models"
 	"flag"
 	"fmt"
 	"log"
@@ -9,7 +10,7 @@ import (
 	"time"
 )
 
-const verstion = "1.0.0"
+const version = "1.0.0"
 
 type config struct {
 	port int
@@ -25,6 +26,7 @@ type AppStatus struct {
 type application struct {
 	config config
 	logger *log.Logger
+	db     models.Database
 }
 
 func main() {
@@ -39,6 +41,12 @@ func main() {
 		config: cfg,
 		logger: logger,
 	}
+
+	logger.Println("Starting DB...")
+	app.db = models.Database{}
+	app.db.Init()
+	logger.Println("DB started.")
+	app.db.GetNumberInfo(1)
 
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", cfg.port),

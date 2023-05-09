@@ -22,7 +22,7 @@ export default class TrackNumber extends Component {
                 <ul>
                     {this.state.numbers.map((n) => 
                         <li key={n.id}>
-                            <Link to={`/track-number/${n.title}`}>{n.title}</Link>
+                            <Link to={`/track-number/${n.id}`}>{n.title}</Link>
                         </li>
                     )}
                 </ul>

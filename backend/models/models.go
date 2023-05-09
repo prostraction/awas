@@ -1,18 +1,21 @@
 package models
 
-import "time"
-
 type Number struct {
 	ID     int    `json:"id"`
 	Name   string `json:"name"`
 	Status string `json:"status"`
+	Type   string `json:"type"`
+	TypeID int    `json:"type_id"`
 }
 
-type History struct {
-	ID           int            `json:"id"`
-	NumberID     int            `json:"num_id"`
-	HistoryEntry []HistoryEntry `json:"-"`
+type HistoryNumber struct {
+	ID       int    `json:"id"`
+	NumberID int    `json:"id_num"`
+	Status   string `json:"status"`
+	Comment  string `json:"comment"`
 }
+
+/*
 type HistoryEntry struct {
 	ID         int       `json:"id"`
 	NumberID   int       `json:"num_id"`
@@ -22,3 +25,4 @@ type HistoryEntry struct {
 
 type DbElement struct {
 }
+*/
