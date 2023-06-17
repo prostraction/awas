@@ -46,7 +46,8 @@ func main() {
 	app.db = models.Database{}
 	app.db.Init()
 	logger.Println("DB started.")
-	app.db.GetNumberInfo(1)
+	//	app.db.AddNumberInfo("golang", "status OK", "type OK", 0)
+	//	app.db.GetNumberInfo(1)
 
 	srv := &http.Server{
 		Addr:         fmt.Sprintf(":%d", cfg.port),

@@ -1,9 +1,15 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 import { BrowserRouter as Rounter, Routes, Route, Link, useParams } from "react-router-dom";
 
-import Home from './components/Home'
+import Shop from './components/Shop'
+import ShopList from './components/ShopList'
 import Admin from './components/Admin'
 import TrackNumber from './components/TrackNumber'
+import ProductList from './components/Product/ProductList'
+import ShopOrderBuy from './components/ShopOrderBuy'
+import ShopOrderSell from './components/ShopOrderSell'
+
+import './App.css';
 
 export default class App extends Component {
     render() {
@@ -21,14 +27,11 @@ export default class App extends Component {
                     <div className="col-md-2">
                         <nav>
                             <ul className="list-group">
-                                <li className="list-group-item">
-                                    <Link to="/">Home</Link>
+                                <li className="list-group-item list-group-item-action">
+                                    <Link to="/shops">Магазины</Link>
                                 </li>
-                                <li className="list-group-item">
-                                    <Link to="/admin">Admin</Link>
-                                </li>
-                                <li className="list-group-item">
-                                    <Link to="/track-number">Track number</Link>
+                                <li className="list-group-item list-group-item-action">
+                                    <Link to="/products">Продукция</Link>
                                 </li>
                             </ul>
                         </nav>
@@ -36,15 +39,20 @@ export default class App extends Component {
 
                     <div className="col-md-10">
                         <Routes>
-                            <Route path='/' element={<Home/>}/>
+                            <Route path='/shops' element={<ShopList/>}/>
+                            <Route path='/shops/:id' element={<Shop/>}/>
                             <Route path='/admin' element={<Admin/>}/>
                             <Route path='/track-number/:id' element={<Number/>}/>
                             <Route path='/track-number' element={<TrackNumber/>}/>
+                            <Route path='/products' element={<ProductList/>}/>
+                            <Route path='/shops/:id/orders/buy' element={<ShopOrderBuy/>}/>
+                            <Route path='/shops/:id/orders/sell' element={<ShopOrderSell/>}/>
                         </Routes>
                     </div>
                 </div>
             </div>
             </Rounter>
+            
         )
     }
 }

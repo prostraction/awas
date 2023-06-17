@@ -1,5 +1,6 @@
 package main
 
+/*
 import (
 	"errors"
 	"net/http"
@@ -30,3 +31,4 @@ func (app *application) getNumber(w http.ResponseWriter, r *http.Request) {
 func (app *application) getNumbersAll(w http.ResponseWriter, r *http.Request) {
 
 }
+*/
